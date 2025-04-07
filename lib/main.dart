@@ -1,7 +1,7 @@
-import 'package:first_fluuter_screen/extra_text.dart';
-import 'package:first_fluuter_screen/icon_text_button.dart';
-import 'package:first_fluuter_screen/main_headline.dart';
-import 'package:first_fluuter_screen/sup_topic.dart';
+import 'package:first_fluuter_screen/widgets/extra_text.dart';
+import 'package:first_fluuter_screen/widgets/icon_text_button.dart';
+import 'package:first_fluuter_screen/widgets/main_headline.dart';
+import 'package:first_fluuter_screen/widgets/sup_topic.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,9 +23,11 @@ class MainApp extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(49, 165, 180, 1),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromRGBO(49, 165, 180, 1),
-        selectedItemColor: const Color.fromARGB(255, 40, 39, 39),
-        unselectedItemColor: const Color.fromARGB(255, 145, 132, 132),
+        backgroundColor: const Color.fromARGB(255, 116, 196, 207),
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: const Color.fromARGB(255, 245, 241, 241),
+        unselectedItemColor: const Color.fromARGB(255, 44, 114, 115),
+        //fixedColor: Color.fromRGBO(49, 165, 180, 1),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_max_outlined),
