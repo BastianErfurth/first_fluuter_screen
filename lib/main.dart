@@ -1,4 +1,6 @@
 import 'package:first_fluuter_screen/icon_text_button.dart';
+import 'package:first_fluuter_screen/main_headline.dart';
+import 'package:first_fluuter_screen/sup_topic.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,41 +13,41 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color.fromRGBO(6, 87, 97, 1),
-        appBar: AppBar(
-          toolbarHeight: 30,
-          shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(21.3))),
-          backgroundColor: const Color.fromRGBO(49, 165, 180, 1),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: const Color.fromRGBO(49, 165, 180, 1),
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_max_outlined),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.euro),
-              label: "Kosten",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.document_scanner_outlined),
-              label: "Dokumente",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_view_month_rounded),
-              label: "Kalender",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "Einstellungen",
-            ),
-          ],
-        ),
-        body: Column(
+        home: Scaffold(
+      backgroundColor: Color.fromRGBO(6, 87, 97, 1),
+      appBar: AppBar(
+        toolbarHeight: 30,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(21.3))),
+        backgroundColor: const Color.fromRGBO(49, 165, 180, 1),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color.fromRGBO(49, 165, 180, 1),
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_max_outlined),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.euro),
+            label: "Kosten",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.document_scanner_outlined),
+            label: "Dokumente",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_view_month_rounded),
+            label: "Kalender",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Einstellungen",
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -57,29 +59,25 @@ class MainApp extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                spacing: 8,
-                children: [
-                  Icon(
-                    Icons.description_rounded,
-                    color: Colors.white,
-                    size: 16,
-                  ),
-                  Text(
-                    "Struktur",
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            )
+            MainHeadline(icon: Icons.description, headLineText: "Struktur"),
+            SupTopic(topicText: "Kategorie", icon: Icons.arrow_drop_down),
+            SupTopic(
+                topicText: "Stichwort eingeben", icon: Icons.arrow_drop_down),
+            SizedBox(height: 8),
+            MainHeadline(
+                icon: Icons.description, headLineText: "Vertragsparteien"),
+            SupTopic(topicText: "Profil", icon: Icons.arrow_drop_down),
+            SupTopic(topicText: "Vertragspartner", icon: Icons.arrow_drop_down),
+            SupTopic(topicText: "Vertragnummer", icon: Icons.arrow_drop_down),
+            SizedBox(height: 8),
+            MainHeadline(icon: Icons.lock_clock, headLineText: "Laufzeiten"),
+            SupTopic(topicText: "Vertragsstart", icon: Icons.arrow_drop_down),
+            SupTopic(topicText: "Laufzeit", icon: Icons.arrow_drop_down),
+            SupTopic(
+                topicText: "Automaitische Verlängerung", icon: Icons.toggle_on),
           ],
         ),
       ),
-    );
+    ));
   }
 }
