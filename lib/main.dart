@@ -1,3 +1,4 @@
+import 'package:first_fluuter_screen/extra_text.dart';
 import 'package:first_fluuter_screen/icon_text_button.dart';
 import 'package:first_fluuter_screen/main_headline.dart';
 import 'package:first_fluuter_screen/sup_topic.dart';
@@ -23,6 +24,8 @@ class MainApp extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color.fromRGBO(49, 165, 180, 1),
+        selectedItemColor: const Color.fromARGB(255, 40, 39, 39),
+        unselectedItemColor: const Color.fromARGB(255, 145, 132, 132),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_max_outlined),
@@ -75,6 +78,48 @@ class MainApp extends StatelessWidget {
             SupTopic(topicText: "Laufzeit", icon: Icons.arrow_drop_down),
             SupTopic(
                 topicText: "Automaitische Verlängerung", icon: Icons.toggle_on),
+            MainHeadline(icon: Icons.close, headLineText: "Kündigung"),
+            SupTopic(topicText: "Kündigungsfrist", icon: Icons.arrow_drop_down),
+            SupTopic(topicText: "Kündigungserinnerung", icon: Icons.toggle_on),
+            SizedBox(height: 8),
+            MainHeadline(icon: Icons.euro_rounded, headLineText: "Kosten"),
+            SupTopic(topicText: "Kosten", icon: Icons.arrow_drop_down),
+            SupTopic(
+                topicText: "Intervall Abbuchung", icon: Icons.arrow_drop_down),
+            SupTopic(
+                topicText: "Zahlungsintervall", icon: Icons.arrow_drop_down),
+            SizedBox(height: 8),
+            MainHeadline(icon: Icons.add_outlined, headLineText: "Sonstiges"),
+            SupTopic(
+                topicText: "Zusatzinformationen", icon: Icons.add_outlined),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                color: const Color.fromRGBO(49, 165, 180, 1),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                  child: Container(
+                    child: Column(
+                      children: [
+                        extraText(text: "Zusatzinfo 1"),
+                        extraText(text: "Zusatztext 2"),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconTextButton(
+                      icon: Icons.upload, buttonText: "Dokument hochladen"),
+                  IconTextButton(icon: Icons.save, buttonText: "Speichern"),
+                ],
+              ),
+            )
           ],
         ),
       ),
